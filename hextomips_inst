@@ -1,0 +1,13 @@
+ADDI $a1 $zero 0x0001 #	a1 <- 0001
+ADDI $a2 $zero 0x0064 #	a2 <- 0064
+ADDI $v0 $zero 0x1000 #	v0 <- 
+SLL $v0 $v0 0x16
+ADDI $a3 $v0 0x0028
+LW $v1 0x0000 $v0
+SLT $a0 $a2 $v1
+BEQ $a0 $a1 0x0002
+SUB $a2 $a2 $v1
+SW $zero 0x0000 $v0
+ADDI $v0 $v0 0x0004
+BNE $v0 $a3 0xFFF9
+SW $a2 0x0000 $a3
